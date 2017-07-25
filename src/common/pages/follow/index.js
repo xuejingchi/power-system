@@ -1,5 +1,13 @@
 import React from 'react'
 import './index.less'
+import SearchBar from 'components/searchbar'
+import EchartsViews from '../index/EchartsViews'
+
+import {
+    musicKindList,
+    languageKindList,
+    publishCountry
+} from '../../utils/config'
 
 export default class follow extends React.Component {
     constructor(props) {
@@ -7,12 +15,6 @@ export default class follow extends React.Component {
         this.state = {
             col:'#666'
         }
-    }
-
-    getRandomColor = () => {
-        this.setState({
-            col: '#'+('00000'+(Math.random()*0x1000000<<0).toString(16)).slice(-6)
-        });
     }
 
     // 组件渲染后，500毫秒改变一次组件颜色
@@ -25,15 +27,70 @@ export default class follow extends React.Component {
         clearInterval(this.interval);
     }
 
+    searchFields = () => {
+        return [{
+            title: '类型(单独搜索)',
+            key: 'type',
+            type: 'select',
+            defaultValue: 2,
+            items: () => musicKindList.map(ele => ({
+                value: ele.value,
+                mean: ele.mean
+            })),
+        }, {
+            title: '发行国家',
+            key: 'country',
+            type: 'select',
+            defaultValue: '全部',
+            items: () => [{
+                value: 0,
+                mean: '全部'
+            }].concat(publishCountry.map(ele => ({
+                value: ele.value,
+                mean: ele.mean
+            }))),
+        }, {
+            title: '歌曲语种',
+            key: 'language',
+            type: 'select',
+            defaultValue: '全部',
+            items: () => [{
+                value: 0,
+                mean: '全部'
+            }].concat(languageKindList.map(ele => ({
+                value: ele.value,
+                mean: ele.mean
+            }))),
+        }, {
+            title: '发行时间段',
+            key: ['start', 'end'],
+            type: 'rangePicker',
+        }]
+    }
+
+    onSearch = (searchFields) => {
+        // const typeId = searchFields.type ? searchFields.type : 2;
+        // this.fetchTableData(typeId, searchFields)
+    }
+
+    getRandomColor = () => {
+        this.setState({
+            col: '#'+('00000'+(Math.random()*0x1000000<<0).toString(16)).slice(-6)
+        });
+    }
+
     render() {
-        const { col } = this.state
+        // const { col } = this.state
 
         return (
-            <div className="animated flip ani-box">
-                <div><a href="https://github.com/MuYunyun/react-antd-demo" className="welcome animated flip text" style={{ color: col }}>项目地址</a></div>
-                <img src={require('../../images/face.png')} width="100" alt="logo" className="lastPic" />
-                <div className="animated swing discribe">本项目中，会把平时工作、学习中</div>
-                <div className="animated swing discribe">遇到的事抽象成demo给展现出来。欢迎 <a href="https://github.com/MuYunyun/react-antd-demo">Star</a></div>
+            <div>
+                <SearchBar fields={this.searchFields()} />
+                <div>
+                    <EchartsViews />
+                    <img src={require('../../images/face.png')} width="100" alt="logo" className="lastPic" />
+                    <div className="animated swing discribe">生命不息</div>
+                    <div className="animated swing discribe">coding不止</div>
+                </div>
             </div>
         )
     }

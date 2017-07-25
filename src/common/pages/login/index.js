@@ -9,11 +9,15 @@ const history = createHistory();
 
 class LoginPage extends React.Component {
 
+    componentDidMount() {
+        this.openNotificationWithIcon('info');
+    }
+
     handleSubmit = (e) => {
         e.preventDefault();
         let n = this.props.form.getFieldsValue().username;
         let p = this.props.form.getFieldsValue().password;
-        if (n === '123' && p === '123') {
+        if (n === 'teletraan' && p === 'jingchi39') {
             // 表单的路由处理
             history.push('/index');
         } else {
@@ -24,15 +28,11 @@ class LoginPage extends React.Component {
     // 返回一个弹框对象，提示用户名和密码
     openNotificationWithIcon = (type) => {
         return notification[type]({
-                 message: '用户名&密码',
-                 description: '都是：123',
-                 duration: 6,
-                 icon: <Icon type="smile-circle" style={{ color: '#108ee9' }} />,
-               })
-    }
-
-    componentDidMount() {
-        this.openNotificationWithIcon('info');
+            message: '用户名&密码',
+            description: '请输入正确的用户名密码',
+            duration: 4,
+            icon: <Icon type="smile-circle" style={{ color: '#108ee9' }} />,
+        })
     }
 
     render() {

@@ -21,45 +21,10 @@ export default class SearchBar extends React.Component {
     };
   }
 
-  setField(field, value) {
-    const {
-     fields,
-     warnings
-    } = this.state;
-    let newValue = value;
-    if (Array.isArray(newValue) && newValue.length === 0) {
-      newValue = undefined;
-    }
-    if (field.validator) {
-      try {
-        newValue = field.validator(value);
-        warnings[field.key] = '';
-      } catch (e) {
-        warnings[field.key] = e.message;
-      }
-    }
-    for (const otherField of this.props.fields) {
-      const dependency = _.find(otherField.dependency, { key: field.key });
-      if (dependency) {
-        fields[otherField.key] = '';
-      }
-    }
-    if (typeof field.key !== 'string') {
-      fields[field.key[0]] = newValue && newValue[0];
-      fields[field.key[1]] = newValue && newValue[1];
-    } else {
-      fields[field.key] = newValue;
-    }
-    this.setState({
-      fields,
-      warnings
-    })
-  }
-
   componentDidMount() {
     // eslint-disable-next-line no-restricted-syntax
     for (const component of this.needToEmptyStyleComponents) {
-      // eslint-disable-next-line react/no-find-dom-node
+      // eslint-disable-next-line react/no-find-dom-node  获取dom节点
       const dom = ReactDOM.findDOMNode(component);
       dom.setAttribute('style', '');
     }
@@ -81,6 +46,41 @@ export default class SearchBar extends React.Component {
         }
       }
     }
+  }
+
+  setField(field, value) {
+      const {
+          fields,
+          warnings
+      } = this.state;
+      let newValue = value;
+      if (Array.isArray(newValue) && newValue.length === 0) {
+          newValue = undefined;
+      }
+      if (field.validator) {
+          try {
+              newValue = field.validator(value);
+              warnings[field.key] = '';
+          } catch (e) {
+              warnings[field.key] = e.message;
+          }
+      }
+      for (const otherField of this.props.fields) {
+          const dependency = _.find(otherField.dependency, { key: field.key });
+          if (dependency) {
+              fields[otherField.key] = '';
+          }
+      }
+      if (typeof field.key !== 'string') {
+          fields[field.key[0]] = newValue && newValue[0];
+          fields[field.key[1]] = newValue && newValue[1];
+      } else {
+          fields[field.key] = newValue;
+      }
+      this.setState({
+          fields,
+          warnings
+      })
   }
 
   generateInputs(fields) {
@@ -107,7 +107,8 @@ export default class SearchBar extends React.Component {
       case 'input':
       default:
         if ('autoComplete' in field) {  // 自动补全
-          component = (<Select
+          component = (
+              <Select
             combobox
             value={this.state.fields[field.key]}
             showArrow={false}
@@ -127,29 +128,32 @@ export default class SearchBar extends React.Component {
                     this.setState({ autoComplete });
                   })
             }}
-          >
+              >
             {(this.state.autoComplete[field.key] || []).map((value, key) =>
               <Select.Option key={key} value={value}>{value}</Select.Option>)}
           </Select>)
         } else {
-          component = (<Input
+          component = (
+              <Input
             value={this.state.fields[field.key]}
             onChange={e => this.setField(field, e.target.value)}
-          />)
+              />)
         }
         break;
       case 'cascader':  // 级联
-        component = (<Cascader
+        component = (
+            <Cascader
           options={items}
           placeholder="请选择"
           value={this.state.fields[field.key]}
           disabled={this.state.disabled[field.key]}
           onChange={value => this.setField(field, value)}
           showSearch
-        />);
+            />);
         break;
       case 'select':
-        component = (<Select
+        component = (
+            <Select
           placeholder="请选择"
           value={this.state.fields[field.key] === undefined ? (field.defaultValue && field.defaultValue.toString()) : this.state.fields[field.key]}
           multiple={field.multiple}
@@ -161,22 +165,24 @@ export default class SearchBar extends React.Component {
           style={{
             width: '100%',
           }}
-        >
+            >
           {items && items.map(({ mean, value }) =>
             <Select.Option key={value.toString()} value={value.toString()}>{mean}</Select.Option>)}
         </Select>);
         break;
       case 'date':
-        component = (<DatePicker
+        component = (
+            <DatePicker
           value={this.state.fields[field.key]}
           disabled={this.state.disabled[field.key]}
           onChange={value => this.setField(field, value)}
           placeholder="请选择日期"
           showToday={false}
-        />)
+            />)
         break
       case 'rangePicker':
-        component = (<DatePicker.RangePicker
+        component = (
+            <DatePicker.RangePicker
           showTime
           format="YYYY-MM-DD"
           value={[this.state.fields[field.key[0]], this.state.fields[field.key[1]]]}
@@ -185,10 +191,11 @@ export default class SearchBar extends React.Component {
             this.setField(field, value)
           }}
           showToday={false}
-        />)
+            />)
         break;
       case 'datetime':
-        component = (<DatePicker
+        component = (
+            <DatePicker
           showTime
           format="YYYY-MM-DD HH:mm"
           value={this.state.fields[field.key]}
@@ -197,7 +204,7 @@ export default class SearchBar extends React.Component {
           placeholder="请选择时间"
           ref={item => this.needToEmptyStyleComponents.push(item)}
           showToday={false}
-        />)
+            />)
         break;
       }
       components.push(<div key={i++} className="field">

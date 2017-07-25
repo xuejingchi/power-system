@@ -21,7 +21,7 @@ export default class Top extends React.Component {
 
     getUser = () => {
         this.setState({
-            username: 'Muyy'
+            username: 'xxx电力系统'
         })
     }
 
@@ -45,8 +45,8 @@ export default class Top extends React.Component {
                     onClick={this.props.toggle}
                 />
                 <Menu mode="horizontal" className="logOut" onClick={this.clear}>
-                    <SubMenu title={<span><Icon type="user" />{ this.state.username }</span>} >
-                        <Menu.Item key="logOut"><Link to="/login" >退出</Link></Menu.Item>
+                    <SubMenu key={<span><Icon type="user" />{ this.state.username }</span>} title={<span><Icon type="user" />{ this.state.username }</span>} >
+                        <Menu.Item key="logOut"><Link key={'login'} to="/login" >退出</Link></Menu.Item>
                     </SubMenu>
                 </Menu>
                 {/*<Icon

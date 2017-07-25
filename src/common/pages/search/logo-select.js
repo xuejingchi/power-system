@@ -32,7 +32,8 @@ export default class LogoSelect extends React.Component {
         const Li = this.state.logos.map((logo, index)=>{
             return (
                 <div className="logo-list-item"
-                     key={index}>
+                     key={index}
+                >
                     <img src={logo} onClick={this.handleLogoSelect} data-index={index} alt="logo" />
                 </div>
             )
@@ -42,7 +43,7 @@ export default class LogoSelect extends React.Component {
             <div className="logo-panel">
                 <div className="logo-display">
                     <img src={this.state.logos[this.state.selectIndex]} alt="logo" />
-                    <span className="logo-select-arrow" onClick={this.showLogoList}></span>
+                    <span className="logo-select-arrow" onClick={this.showLogoList}>showLogoList</span>
                 </div>
                 <div className="logo-list" style={{display: this.state.showLogo? 'block': 'none'}}>
                     {Li}

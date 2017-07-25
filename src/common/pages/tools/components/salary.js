@@ -21,7 +21,7 @@ export default class Salary extends React.Component {
   		const input = e.target.value;
   		if (handleonce && input >= 10000) {
         handleonce = false;
-  			message.success('呦！不错哦，工资上万了');
+  			message.success('呦！不错哦!');
   		}
   		const old = input*8/100;
   		const medical = input*2/100 + (input > 0 ? 3 : 0);
@@ -66,7 +66,7 @@ export default class Salary extends React.Component {
   	  		<div style={{marginTop:80}}>
   	  			<Row type="flex" justify="center" className="rowItem">
 	  	  			<Col span={10}>
-		  		  	 	<Input type="number" addonBefore="应发工资：" addonAfter="￥" onChange={this.handleChange}/>
+		  		  	 	<Input type="number" addonBefore="应发工资：" addonAfter="￥" onChange={this.handleChange} />
 	  	  			</Col>
   	  			</Row>
   	  			<Row type="flex" justify="center" className="rowItem">
@@ -91,7 +91,7 @@ export default class Salary extends React.Component {
 	  	  		</Row>
 	  	  		<Row type="flex" justify="center" className="rowItem">
 	  	  			<Col span={10}>
-	  	  				<Input addonBefore="税前工资：" addonAfter="￥" value={this.state.pretax} id="red"/>
+	  	  				<Input addonBefore="税前工资：" addonAfter="￥" value={this.state.pretax} id="red" />
 	  	  			</Col>
 	  	  		</Row>
 	  	  		<Row type="flex" justify="center" className="rowItem">
@@ -101,12 +101,12 @@ export default class Salary extends React.Component {
 	  	  		</Row>
 	  	  		<Row type="flex" justify="center" className="rowItem">
 	  	  			<Col span={10}>
-	  	  				<Input addonBefore="税后工资：" addonAfter="￥" value={this.state.output} id="blue"/>
+	  	  				<Input addonBefore="税后工资：" addonAfter="￥" value={this.state.output} id="blue" />
 	  	  			</Col>
 	  	  		</Row>
 						<Row type="flex" justify="center" className="rowItem">
 	  	  			<Col span={10}>
-	  	  				<div className="issue">如若结果出现误差<a href="https://github.com/MuYunyun/react-antd-demo/issues" target="_blank">点此提issue</a>，O(∩_∩)O</div>
+	  	  				<div className="issue">O(∩_∩)O</div>
 	  	  			</Col>
 	  	  		</Row>
 	  	  	</div>

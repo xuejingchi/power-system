@@ -5,7 +5,7 @@ import './content.less'
 import index from 'pages/index'
 import follow from 'pages/follow'
 import Tools from 'pages/tools'
-import Music from 'pages/music'
+import Power from 'pages/power'
 import Todo from 'pages/todo'
 import Album from 'pages/album'
 import Editor from 'pages/editor'
@@ -18,15 +18,15 @@ export default class Contents extends React.Component {
   render() {
     return (
       <Content className="content">
-        <Route path="/index" component={index} />
-        <Route path="/follow" component={follow} />
-        <Route path="/tools" component={Tools} />
-        <Route path="/music" component={Music} />
-        <Route path="/todo" component={Todo} />
-        <Route path="/album" component={Album} />
-        <Route path="/editor" component={Editor} />
-        <Route path="/todoList" component={TodoList} />
-        <Route path="/searchEngine" component={Search} />
+        <Route key={index} path="/index" component={index} />
+        <Route key={follow} path="/follow" component={follow} />
+        <Route key={Tools} path="/tools" component={Tools} />
+        <Route key={Todo} path="/todo" component={Todo} />
+        <Route key={Album} path="/album" component={Album} />
+        <Route key={Editor} path="/editor" component={Editor} />
+        <Route key={Search} path="/searchEngine" component={Search} />
+        <Route key={TodoList} path="/todoList" component={TodoList} />
+        <Route key={Power} path="/power" component={Power} />
       </Content>
     );
   }

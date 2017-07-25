@@ -23,7 +23,7 @@ require('es6-promise').polyfill();
 
 const confirm = Modal.confirm
 
-export default class Music extends React.Component {
+export default class Power extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -40,11 +40,24 @@ export default class Music extends React.Component {
         this.onCancelEdit = this.onCancelEdit.bind(this)
     }
 
+    componentWillMount() {
+
+    }
+
+    componentDidMount() {
+        this.fetchTableData('2') // 默认是热歌版
+    }
+
+
+    componentWillUnmount() {
+
+    }
+
     // 获取表格数据
     fetchTableData = (typeId, searchFields) => {
         fetchJsonp(`http://tingapi.ting.baidu.com/v1/restserver/ting?xml&calback=&from=webapp_music&method=baidu.ting.billboard.billList&type=${typeId}&size=100&offset=0`, {
-                method: 'GET'
-            })
+            method: 'GET'
+        })
             .then((res) => {
                 return res.json();
             })
@@ -82,10 +95,6 @@ export default class Music extends React.Component {
             .catch((e) => {
                 console.log(e.message);
             });
-    }
-
-    componentDidMount() {
-        this.fetchTableData('2') // 默认是热歌版
     }
 
     onSearch = (searchFields) => {
@@ -158,7 +167,7 @@ export default class Music extends React.Component {
             dataIndex: 'publishtime',
             title: '发行时间',
             width: 200,
-        }, ]
+        },]
     }
 
     add() {
@@ -204,7 +213,8 @@ export default class Music extends React.Component {
                 onOk: () => {
                     message.success('删除成功')
                 },
-                onCancel() {}
+                onCancel() {
+                }
             })
         }
     }
@@ -349,10 +359,10 @@ export default class Music extends React.Component {
                 />
                 <div className="tableBox">
                     <Button onClick={this.add} className="addButton">添加</Button>
-                    <div style={{ paddingTop: 43 }}>
+                    <div style={{paddingTop: 43}}>
                         <Table
                             onCtrlClick={ this.tableAction }
-                            pagination={ true }
+                            pagination
                             pageSize={10}
                             header={ this.tableHeader() }
                             data={ this.state.tData }
@@ -368,7 +378,7 @@ export default class Music extends React.Component {
                                 color: 'red',
                                 icon: 'delete'
                             }]}
-                            scroll={{y: 385 }}
+                            scroll={{y: 385}}
                         />
                     </div>
                 </div>

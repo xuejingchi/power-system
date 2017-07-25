@@ -10,7 +10,10 @@ export default class Search extends React.Component {
             keyword: '',
             showList: [],
             listIndex: 0,
-            searchSrcs: ['https://www.so.com/s?ie=utf-8&shb=1&src=360sou_newhome&q=', 'https://www.baidu.com/s?ie=utf-8&f=8&rsv_bp=0&rsv_idx=1&tn=baidu&wd=', 'https://www.sogou.com/web?query='],
+            searchSrcs: [
+                'https://www.so.com/s?ie=utf-8&shb=1&src=360sou_newhome&q=',
+                'https://www.baidu.com/s?ie=utf-8&f=8&rsv_bp=0&rsv_idx=1&tn=baidu&wd=',
+                'https://www.sogou.com/web?query='],
             searchSrc: 'https://www.baidu.com/s?ie=utf-8&f=8&rsv_bp=0&rsv_idx=1&tn=baidu&wd='
         }
     }
@@ -18,7 +21,8 @@ export default class Search extends React.Component {
     handleInput = (e) => {
         this.setState({
             keyword: e.target.value
-        }, function () {
+        },
+        function () {
             fetchJsonp(`https://sug.so.360.cn/suggest?word=${this.state.keyword}&encodein=utf-8&encodeout=utf-8`, {
                 method: 'GET'
             })
@@ -120,14 +124,15 @@ export default class Search extends React.Component {
                 data-index={ index }
                 className={ this.state.listIndex === index ? 'is-select' : '' }
                 onMouseOver={ this.handleMouseSelect }
-                onClick={ this.handleSelectClick }>
+                onClick={ this.handleSelectClick }
+            >
                 { value }
             </li>
         );
 
         return (
             <div className="search">
-                <LogoSelect onLogoChange={this.onLogoChange}/>
+                <LogoSelect onLogoChange={this.onLogoChange} />
                 <div className="search-panel">
                     <div className="search-align">
                         <div className="search-left">

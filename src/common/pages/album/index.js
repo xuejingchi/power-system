@@ -86,14 +86,14 @@ export default class Gallery extends React.Component {
         ];
         const imgsTag = imgs.map(v1 => (
             v1.map(v2 => (
-                <div className="cloud-box">
-                    <Card bordered={true} bodyStyle={{ padding: 0 }}>
+                <div key={'img_father_'+v2} className="cloud-box">
+                    <Card key={'card_'+v2} bordered bodyStyle={{ padding: 0 }}>
                         <div>
+                            {/*<img key={'img_'+v2} onClick={() => this.openGallery(v2)} alt="example" width="100%" src={v2} />*/}
                             <img onClick={() => this.openGallery(v2)} alt="example" width="100%" src={v2} />
                         </div>
                         <div className="pa-m">
                             <h3>React Admin</h3>
-                            <small><a href="https://github.com/MuYunyun" target="_blank">https://github.com/MuYunyun</a></small>
                         </div>
                     </Card>
                 </div>
@@ -101,20 +101,20 @@ export default class Gallery extends React.Component {
         ));
         return (
             <div>
-                <Row gutter={10}>
-                    <Col span={5}>
+                <Row key={'row_0'} gutter={10}>
+                    <Col key={'col_0'} span={5}>
                         {imgsTag[0]}
                     </Col>
-                    <Col span={5}>
+                    <Col key={'col_1'} span={5}>
                         {imgsTag[1]}
                     </Col>
-                    <Col span={5}>
+                    <Col key={'col_2'} span={5}>
                         {imgsTag[2]}
                     </Col>
-                    <Col span={5}>
+                    <Col key={'col_3'} span={5}>
                         {imgsTag[3]}
                     </Col>
-                    <Col span={4}>
+                    <Col key={'col_4'} span={4}>
                         {imgsTag[4]}
                     </Col>
                 </Row>
@@ -129,10 +129,10 @@ export default class Gallery extends React.Component {
                         <div className="pswp__ui pswp__ui--hidden">
                             <div className="pswp__top-bar">
                                 <div className="pswp__counter" />
-                                <button className="pswp__button pswp__button--close" title="Close (Esc)" />
-                                <button className="pswp__button pswp__button--share" title="Share" />
-                                <button className="pswp__button pswp__button--fs" title="Toggle fullscreen" />
-                                <button className="pswp__button pswp__button--zoom" title="Zoom in/out" />
+                                <button key={'close(Esc)'} className="pswp__button pswp__button--close" title="Close (Esc)" />
+                                <button key={'Share'} className="pswp__button pswp__button--share" title="Share" />
+                                <button key={'Toggle'} className="pswp__button pswp__button--fs" title="Toggle fullscreen" />
+                                <button key={'Zoom'} className="pswp__button pswp__button--zoom" title="Zoom in/out" />
                                 <div className="pswp__preloader">
                                     <div className="pswp__preloader__icn">
                                         <div className="pswp__preloader__cut">
@@ -144,8 +144,8 @@ export default class Gallery extends React.Component {
                             <div className="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
                                 <div className="pswp__share-tooltip" />
                             </div>
-                            <button className="pswp__button pswp__button--arrow--left" title="Previous (arrow left)" />
-                            <button className="pswp__button pswp__button--arrow--right" title="Next (arrow right)" />
+                            <button key={'left'} className="pswp__button pswp__button--arrow--left" title="Previous (arrow left)" />
+                            <button key={'right'} className="pswp__button pswp__button--arrow--right" title="Next (arrow right)" />
                             <div className="pswp__caption">
                                 <div className="pswp__caption__center" />
                             </div>

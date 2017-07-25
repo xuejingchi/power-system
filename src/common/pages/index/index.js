@@ -111,8 +111,8 @@ export default class index extends React.Component {
                                             <img src={b1} className="img-responsive img-circle" alt="test" />
                                         </a>
                                         <div className="clear">
-                                            <a className="block">鸣人</a>
-                                            <span className="text-muted">终于当上火影了！</span>
+                                            <a className="block">葛思铭</a>
+                                            <span className="text-muted">吃饭不</span>
                                         </div>
                                     </li>
                                     <li className="list-group-item">
@@ -120,8 +120,8 @@ export default class index extends React.Component {
                                             <img src={b2} className="img-responsive img-circle" alt="test" />
                                         </a>
                                         <div className="clear">
-                                            <a className="block">佐助</a>
-                                            <span className="text-muted">吊车尾~~</span>
+                                            <a className="block">薛镜池</a>
+                                            <span className="text-muted">点外卖吧</span>
                                         </div>
                                     </li>
                                     <li className="list-group-item">
@@ -129,8 +129,8 @@ export default class index extends React.Component {
                                             <img src={b3} className="img-responsive img-circle" alt="test" />
                                         </a>
                                         <div className="clear">
-                                            <a className="block">小樱</a>
-                                            <span className="text-muted">佐助，你好帅！</span>
+                                            <a className="block">郑晓彬</a>
+                                            <span className="text-muted">点什么吃！</span>
                                         </div>
                                     </li>
                                     <li className="list-group-item">
@@ -138,8 +138,8 @@ export default class index extends React.Component {
                                             <img src={b4} className="img-responsive img-circle" alt="test" />
                                         </a>
                                         <div className="clear">
-                                            <a className="block">雏田</a>
-                                            <span className="text-muted">鸣人君。。。那个。。。我。。喜欢你..</span>
+                                            <a className="block">郭臻</a>
+                                            <span className="text-muted">蔬菜／水果／肉</span>
                                         </div>
                                     </li>
                                 </ul>

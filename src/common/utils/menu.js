@@ -4,11 +4,11 @@ export const allMenu = [
     url: 'index',
     icon: 'home',
   }, {
-    name: '音乐模块',
-    url: 'music',
+    name: '电力统计',
+    url: 'power',
     icon: 'bars',
     children: [
-      { name: '音乐系列', url: 'music' },
+      { name: '输出电信息', url: 'power' },
     ]
   }, {
     name: '工具模块',
@@ -20,28 +20,28 @@ export const allMenu = [
       { name: '待办事项', url: 'todoList' },
     ],
   }, {
-    name: '画廊模块',
+    name: '测试图片区',
     url: 'pic',
     icon: 'edit',
     children: [
-      { name: '时光相片', url: 'album' },
+      { name: '照片区域', url: 'album' },
     ],
   }, {
     name: '搜索模块',
     url: 'search',
     icon: 'search',
     children: [
-      { name: '搜索引擎', url: 'searchEngine' },
+      { name: '搜索iframe测试', url: 'searchEngine' },
     ],
   }, {
     name: '开发模块',
     url: 'dev',
     icon: 'apple-o',
     children: [
-      { name: '更多模块开发中', url: 'todo' },
+      { name: '更多模块', url: 'todo' },
     ],
   }, {
-    name: '项目地址',
+    name: 'test',
     url: 'follow',
     icon: 'heart-o',
   }]

@@ -43,12 +43,12 @@ export default class Salary extends React.Component {
             <div style={{marginTop:80}}>
                 <Row type="flex" justify="center" className="rowItem">
                     <Col span={10}>
-                        <Input type="number" addonBefore="预计租金：" addonAfter="元/月" onChange={this.handleChange}/>
+                        <Input type="number" addonBefore="预计租金：" addonAfter="元/月" onChange={this.handleChange} />
                     </Col>
                 </Row>
                 <Row type="flex" justify="center" className="rowItem">
                     <Col span={10}>
-                        <Input type="number" addonBefore="预计年数：" addonAfter="年"  onChange={this.handleTime}/>
+                        <Input type="number" addonBefore="预计年数：" addonAfter="年" onChange={this.handleTime} />
                     </Col>
                 </Row>
                 <Row type="flex" justify="center" className="rowItem">
@@ -75,7 +75,7 @@ export default class Salary extends React.Component {
                 </Row>
                 <Row type="flex" justify="center" className="rowItem">
 	  	  			<Col span={10}>
-	  	  				<div className="issue">如若结果出现误差<a href="https://github.com/MuYunyun/react-antd-demo/issues" target="_blank">点此提issue</a>，O(∩_∩)O</div>
+	  	  				<div className="issue">谢谢使用</div>
 	  	  			</Col>
 	  	  		</Row>
             </div>

@@ -61,7 +61,9 @@ export default class Table extends React.Component {
             if (children) {
               return this.getActionItem({ color, name, key }, children, row)
             }
-            return (<Tooltip title={ name }><a
+            return (
+                <Tooltip key={ name } title={ name }>
+                  <a
               key={key}
               onClick={(e) => {
                 e.preventDefault();
@@ -75,7 +77,8 @@ export default class Table extends React.Component {
                 display: hidden ? 'none' : 'inline-block',
                 fontSize: 14,
               }}
-            ><Icon type={ icon } /></a></Tooltip>)
+                  ><Icon type={ icon } /></a>
+              </Tooltip>)
           });
           return (<div>
             {buttons}

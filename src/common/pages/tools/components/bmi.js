@@ -76,7 +76,7 @@ class Bmi extends React.Component {
 	  	  		</Form>
 	  	  		<Row type="flex" justify="center" className="rowItem">
 	  	  			<Col span={10}>
-	  	  				<Input addonBefore="您的BMI：" value={this.state.bmi} id="red" disabled/>
+	  	  				<Input addonBefore="您的BMI：" value={this.state.bmi} id="red" disabled />
 	  	  			</Col>
 	  	  		</Row>
 	  	  		<Row type="flex" justify="center" className="rowItem">
@@ -92,7 +92,7 @@ class Bmi extends React.Component {
   	  			</Row>
 				<Row type="flex" justify="center" className="rowItem">
 	  	  			<Col span={10}>
-	  	  				<div className="issue">如若结果出现误差<a href="https://github.com/MuYunyun/react-antd-demo/issues" target="_blank">点此提issue</a>，O(∩_∩)O</div>
+	  	  				<div className="issue">O(∩_∩)O</div>
 	  	  			</Col>
 	  	  		</Row>
 	  	  	</div>

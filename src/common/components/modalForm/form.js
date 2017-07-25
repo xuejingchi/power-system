@@ -45,12 +45,13 @@ class ModForm extends React.Component {
 
   generateFormItem = ({ formItemLayout, label, hasFeedBack, name, options, component }) => {
     const { getFieldDecorator } = this.props.form
-    return (<FormItem
+    return (
+        <FormItem
       {...formItemLayout}
       key={name}
       label={label}
       hasFeedBack={hasFeedBack}
-    >
+        >
       {getFieldDecorator(name, options)(component)}
     </FormItem>)
   }
@@ -59,15 +60,17 @@ class ModForm extends React.Component {
 
   getInputField = field => (<Input />)
 
-  getInputNumberField = field => <InputNumber
-    step={field.options.step}
-    formatter={field.options.formatter}
-    style={{ width: '100%' }}
-  />
+  getInputNumberField = field =>
+    <InputNumber
+      step={field.options.step}
+      formatter={field.options.formatter}
+      style={{ width: '100%' }}
+    />
 
   getTextAreaField = field => (<Input type="textarea" rows={field.options.rows || 4} disabled={field.options.disabled} />)
 
-  getSelectField = field => (<Select
+  getSelectField = field => (
+  <Select
     placeholder="请选择"
     style={{
       width: '100%',
@@ -85,13 +88,15 @@ class ModForm extends React.Component {
     )}
   </RadioGroup>
 
-  getDateField = field => (<DatePicker
-    showToday={false}
-    placeholder="请选择日期"
-  />)
+  getDateField = field => (
+    <DatePicker
+      showToday={false}
+      placeholder="请选择日期"
+    />)
 
   getDateTimeField = field =>
-    (<DatePicker
+    (
+    <DatePicker
       showTime
       format="YYYY-MM-DD"
       placeholder="请选择时间"
@@ -99,26 +104,14 @@ class ModForm extends React.Component {
       ref={item => this.needToEmptyStyleComponents.push(item)}
     />)
 
-  getSwitchField = field => <Switch
+  getSwitchField = field =>
+  <Switch
     checkedChildren={'开'}
     unCheckedChildren={'关'}
     disabled={field.options.disabled}
     defaultChecked={field.options.initialValue}
   />
 
-  // getUploadField = field =>
-  //   <Upload
-  //     name="logo"
-  //     action="/"
-  //     listType="picture"
-  //     beforeUpload={field.options.beforeUpload}
-  //     onChange={field.options.onChange}
-  //     disabled={field.options.disabled}
-  //   >
-  //     <Button>
-  //       <Icon type="upload" /> 点击上传
-  //   </Button>
-  //   </Upload>
   getUploadField = field =>
     <input
       type="file"
@@ -179,7 +172,8 @@ class ModForm extends React.Component {
       })
       components.push(component);
     }
-    const buttons = (<FormItem
+    const buttons = (
+    <FormItem
       key="control-buttons"
       wrapperCol={{
         span: 14,

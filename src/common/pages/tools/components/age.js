@@ -25,7 +25,7 @@ export default class Age extends React.Component {
                         <DatePicker onChange={ this.dateChange } />
                     </Col>
                     <Col span={8}>
-                        <Input addonBefore="您已在地球上存活了：" addonAfter="年" value={ this.state.output } id="blue"/>
+                        <Input addonBefore="您已在地球上存活了：" addonAfter="年" value={ this.state.output } id="blue" />
                     </Col>
                 </Row>
             </div>
