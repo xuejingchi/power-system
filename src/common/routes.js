@@ -7,6 +7,7 @@ import createBrowserHistory from 'history/createBrowserHistory'
 
 const customHistory = createBrowserHistory()
 
+// route停留位置
 const routes = (
   <HashRouter history={customHistory} >
     <div>

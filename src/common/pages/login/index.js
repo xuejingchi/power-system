@@ -13,6 +13,7 @@ class LoginPage extends React.Component {
         this.openNotificationWithIcon('info');
     }
 
+    // 登陆方式
     handleSubmit = (e) => {
         e.preventDefault();
         let n = this.props.form.getFieldsValue().username;

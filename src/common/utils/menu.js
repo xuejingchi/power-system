@@ -9,6 +9,7 @@ export const allMenu = [
     icon: 'bars',
     children: [
       { name: '输出电信息', url: 'power' },
+      { name: '同设备对比', url: 'equipment' }
     ]
   }, {
     name: '工具模块',

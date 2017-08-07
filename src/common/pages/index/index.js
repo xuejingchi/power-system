@@ -8,6 +8,7 @@ import b3 from 'images/xiaoying.jpg';
 import b4 from 'images/chutian.jpg';
 import './index.less'
 
+// 第一页展示内容
 export default class index extends React.Component {
     render() {
         return (

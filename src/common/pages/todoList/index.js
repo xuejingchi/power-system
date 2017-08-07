@@ -12,6 +12,7 @@ let nextTodoId = 0
     })
 )
 
+// 任务功能
 export default class todoList extends React.Component {
     submit = (e) => {
         e.preventDefault()

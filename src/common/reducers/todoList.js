@@ -1,5 +1,6 @@
 import { handleActions } from 'redux-actions'
 
+// 第一步：定义计算规则，即reducer
 const todo = (state, action) => {
   switch (action.type) {
     case 'ADD_TODO':
@@ -35,6 +36,7 @@ const todoListInit = [{
   }]
 
 export const todoList = handleActions({
+  //  第四步：触发数据变化(同时进行数据绑定,返回action)
   'ADD_TODO'(state, action) {
     return [
       ...state,

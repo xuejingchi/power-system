@@ -49,6 +49,7 @@ module.exports = {
     // Errors should be considered fatal in development
     require.resolve('react-error-overlay'),
     // Finally, this is your app's code:
+    //  入口文件配置
     paths.appIndexJs,
     // We include the app code last so that if there is a runtime error during
     // initialization, it doesn't blow up the WebpackDevServer client, and
@@ -56,6 +57,7 @@ module.exports = {
   ],
   output: {
     // Next line is not used in dev but WebpackDevServer crashes without it:
+    //  输出文件配置
     path: paths.appBuild,
     // Add /* filename */ comments to generated require()s in the output.
     pathinfo: true,
@@ -88,6 +90,7 @@ module.exports = {
     alias: {
       // Support React Native Web
       // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
+      //  路径配置
       'react-native': 'react-native-web',
       components: path.resolve(__dirname, '..') + '/src/common/components',
       container: path.resolve(__dirname, '..') + '/src/common/container',
@@ -118,6 +121,7 @@ module.exports = {
       // First, run the linter.
       // It's important to do this before Babel processes the JS.
       {
+        // 编译jsx等
         test: /\.(js|jsx)$/,
         enforce: 'pre',
         use: [
@@ -263,14 +267,17 @@ module.exports = {
     // In development, this will be an empty string.
     new InterpolateHtmlPlugin(env.raw),
     // Generates an `index.html` file with the <script> injected.
+    //  html 模版插件
     new HtmlWebpackPlugin({
       inject: true,
       template: paths.appHtml,
     }),
     // Makes some environment variables available to the JS code, for example:
     // if (process.env.NODE_ENV === 'development') { ... }. See `./env.js`.
+    // 判断是否是dev模式,编译react时压缩到最小
     new webpack.DefinePlugin(env.stringified),
     // This is necessary to emit hot updates (currently CSS only):
+    //  热加载：及时更新数据
     new webpack.HotModuleReplacementPlugin(),
     // Watcher doesn't work well if you mistype casing in a path so we use
     // a plugin that prints an error when you attempt to do this.
